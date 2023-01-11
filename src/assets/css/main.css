@@ -1,0 +1,242 @@
+@font-face {
+  font-family: "RobotoSlab";
+  src: url(../fonts/RobotoSlab-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-regular";
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-medium";
+  src: url(../fonts/Roboto-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-bold";
+  src: url(../fonts/Roboto-Bold.ttf);
+}
+
+:root {
+  --nav-color: #950b40;
+  --nav-color-dark: #4b0620;
+  --figure-color: #43e04f;
+  --main-color: #343a40;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+}
+
+#navDiv {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 0 5%;
+}
+
+#navDiv > ul {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-evenly;
+}
+
+.link {
+  display: none;
+  font-size: 1.5rem;
+}
+
+.link a {
+  color: var(--nav-color);
+}
+
+.link a:hover {
+  color: var(--nav-color-dark);
+}
+
+#menuButton {
+  border: none;
+  background-color: white;
+}
+
+#menuButton:hover {
+  cursor: pointer;
+}
+
+#menuButton > i {
+  font-size: 2.5em;
+  color: var(--nav-color);
+}
+
+#searchBar {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 0.5rem;
+  width: 80%;
+}
+
+#searchBar i {
+  font-size: 1.5rem;
+  color: var(--nav-color);
+}
+
+#searchInput {
+  border: 2px solid var(--nav-color);
+  border-radius: 0.5em;
+  height: 2.5em;
+  width: 80%;
+  font-family: "Roboto-regular";
+  font-size: 1em;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+figure {
+  width: 100%;
+  height: 15rem;
+  position: relative;
+}
+
+#figureBackground {
+  width: 100%;
+  height: 100%;
+  background-color: var(--figure-color);
+  display: flex;
+  align-items: center;
+}
+
+#figureBackground > div {
+  margin-left: 5%;
+  width: 45%;
+}
+
+#figureBackground h1 {
+  font-size: 2rem;
+  font-family: "RobotoSlab";
+  font-weight: 900;
+  color: white;
+}
+
+#figureBackground span {
+  margin: 0 0.3rem;
+}
+
+#figureBackground p {
+  font-size: 1rem;
+  font-family: "RobotoSlab";
+  font-weight: 300;
+  color: white;
+}
+
+figure > img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  clip-path: polygon(48% 0%, 100% 0, 100% 99%, 53% 100%);
+  animation-name: clip-animation;
+  animation-duration: 0.9s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes clip-animation {
+  from {
+    clip-path: polygon(0% 0%, 100% 0, 100% 99%, 0% 100%);
+  }
+  to {
+    clip-path: polygon(48% 0%, 100% 0, 100% 99%, 53% 100%);
+  }
+}
+
+#mainText {
+  width: 100%;
+  margin: 1em 0;
+  display: flex;
+  justify-content: center;
+}
+
+#mainText > p {
+  width: 90%;
+  text-align: center;
+  font-family: "Roboto-regular";
+  font-size: 1.2rem;
+  color: var(--main-color);
+}
+
+#mainCards {
+  width: 90%;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+.card {
+  border: 1px solid var(--main-color);
+  border-radius: 0.5rem;
+  height: 17rem;
+}
+
+@media (min-width: 500px) {
+  #searchBar {
+    width: 310px;
+  }
+  #searchInput {
+    width: 95%;
+  }
+  #mainCards {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  }
+}
+
+@media (min-width: 650px) {
+  #figureBackground > div > h1 {
+    font-size: 3rem;
+  }
+  #figureBackground > div > p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 960px) {
+  #figureBackground > div > h1 {
+    font-size: 4rem;
+  }
+  #figureBackground > div > p {
+    font-size: 1.5rem;
+  }
+  #menuButton {
+    display: none;
+  }
+  .link {
+    display: block;
+  }
+  .link > a {
+    text-decoration: none;
+    font-family: "Roboto-medium";
+  }
+}
+
+@media (min-width: 1000px) {
+  #mainText > p {
+    width: 870px;
+  }
+}

@@ -1,14 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8"/>
-    <title><%= htmlWebpackPlugin.options.title %></title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/f30e376f7f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <title>Viikko 1 tehtävä</title>
   </head>
   <body>
-    <p>
-      Hello! Open the developer tools, please.<br />
-      Start by editing the files in <code>src/</code> folder.
-    </p>
+    <nav>
+      <div id="navDiv">
+        <button id="menuButton"><i class="fa-solid fa-bars"></i></button>
+        <ul>
+          <li class="link"><a href="#">Etusivu</a></li>
+          <li class="link"><a href="#">Ruokalistat</a></li>
+          <li class="link"><a href="#">Ravintolat</a></li>
+          <li class="link"><a href="#">Yhteystiedot</a></li>
+        </ul>
+        <div id="searchBar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" name="search" id="searchInput" />
+        </div>
+      </div>
+    </nav>
+    <main>
+      <figure>
+        <div id="figureBackground">
+          <div>
+            <h1>
+              <span>L</span><span>o</span><span>u</span><span>n</span
+              ><span>a</span><span>r</span><span>i</span><span>.</span>
+            </h1>
+            <p>Missä tänään syötäisiin?</p>
+          </div>
+        </div>
+        <img src="assets/images/food.jpg" alt="food" />
+      </figure>
+      <section id="mainText">
+        <p>
+          Missä tänään syötäisiin? Tuttu tarina ennen lounashetkeä. Palvelu
+          etsii lähelläsi olevat lounaspaikat, sekä näyttää niiden päivittäisen
+          lounaslistan. Viikottaiset lounaslistat ovat myös käytettävissäsi.
+          Pääset niihin klikkaamalla ravintolan logoa.
+        </p>
+      </section>
+      <section id="mainCards">
+        <article class="card card1"><h3></h3></article>
+        <article class="card card2"><h3></h3></article>
+        <article class="card card3"><h3></h3></article>
+        <article class="card card4"><h3></h3></article>
+        <article class="card card5"><h3></h3></article>
+        <article class="card card6"><h3></h3></article>
+      </section>
+    </main>
   </body>
 </html>
