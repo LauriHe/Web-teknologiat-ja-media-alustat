@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "Roboto-regular";
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto-regular;
+}
+
+.hidden {
+  display: none !important;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(26, 26, 26);
+}
+
+.container {
+  width: 75%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.container > * {
+  color: white;
+}
+
+.container > h1 {
+  color: orange;
+}
+
+#enterGuess {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#inputField {
+  width: 8rem;
+  font-size: 1em;
+  padding: 0.5em;
+  border: 2px solid white;
+  border-radius: 0.5em;
+  color: white;
+  background-color: rgb(26, 26, 26);
+}
+
+.container button {
+  width: 6rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: black;
+}
+
+.container button:hover {
+  background-color: orange;
+  color: white;
+}

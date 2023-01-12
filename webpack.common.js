@@ -1,51 +1,52 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: './src/index.js',
+    app: "./src/numbers.js",
   },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyPlugin({
       patterns: [
-      {
-        from: 'assets/',
-        to: 'assets/',
-        context: 'src/',
-      },
-    ]}),
+        {
+          from: "assets/",
+          to: "assets/",
+          context: "src/",
+        },
+      ],
+    }),
     new HtmlWebpackPlugin({
-      title: 'WTMP Starter',
+      title: "WTMP Starter",
       meta: {
-        viewport: 'width=device-width, initial-scale=1.0'
+        viewport: "width=device-width, initial-scale=1.0",
       },
-      template: './src/index.html',
+      template: "./src/numbers.html",
       minify: {
         removeComments: true,
-        collapseWhitespace: true
+        collapseWhitespace: true,
       },
     }),
-    new ESLintPlugin({})
+    new ESLintPlugin({}),
   ],
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist"),
   },
   optimization: {
     splitChunks: {
-      chunks: 'all'
-    }
+      chunks: "all",
+    },
   },
   module: {
     rules: [
       {
         test: /\.(png|svg|jpg|gif)$/,
-        type: 'asset/resource'
-      }
-    ]
-  }
+        type: "asset/resource",
+      },
+    ],
+  },
 };
