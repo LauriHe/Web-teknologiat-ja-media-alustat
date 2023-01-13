@@ -31,6 +31,11 @@ const uiFi = {
   etsii lähelläsi olevat lounaspaikat, sekä näyttää niiden päivittäisen
   lounaslistan. Viikottaiset lounaslistat ovat myös käytettävissäsi.
   Pääset niihin klikkaamalla ravintolan logoa.`,
+  langButton: "EN",
+  dropbtn: "järjestä",
+  ascButton: "A - Ö",
+  descButton: "Ö - A",
+  randomButton: "Valitse satunnainen ruoka",
 };
 
 const uiEn = {
@@ -43,6 +48,11 @@ const uiEn = {
   searches lunch restaurants near you and displays their daily menus.
   Weekly lunch menus are also available.
   See them by clicking the restauran's logo.`,
+  langButton: "FI",
+  dropbtn: "Sort by",
+  ascButton: "A - Z",
+  descButton: "Z - A",
+  randomButton: "Pick a random course",
 };
 
 const coursesFi = [
@@ -106,11 +116,11 @@ const changeLang = () => {
     link4.textContent = uiEn.link4;
     p1.textContent = uiEn.p1;
     p2.textContent = uiEn.p2;
-    langButton.textContent = "FI";
-    dropbtn.textContent = "Sort by";
-    ascButton.textContent = "A - Z";
-    descButton.textContent = "Z - A";
-    randomButton.textContent = "Pick a random course";
+    langButton.textContent = uiEn.langButton;
+    dropbtn.textContent = uiEn.dropbtn;
+    ascButton.textContent = uiEn.ascButton;
+    descButton.textContent = uiEn.descButton;
+    randomButton.textContent = uiEn.randomButton;
     courses = coursesEn;
     renderCards(sortCourses(sort));
   } else {
@@ -121,11 +131,11 @@ const changeLang = () => {
     link4.textContent = uiFi.link4;
     p1.textContent = uiFi.p1;
     p2.textContent = uiFi.p2;
-    langButton.textContent = "EN";
-    dropbtn.textContent = "järjestä";
-    ascButton.textContent = "A - Ö";
-    descButton.textContent = "Ö - A";
-    randomButton.textContent = "Valitse satunnainen ruoka";
+    langButton.textContent = uiFi.langButton;
+    dropbtn.textContent = uiFi.dropbtn;
+    ascButton.textContent = uiFi.ascButton;
+    descButton.textContent = uiFi.descButton;
+    randomButton.textContent = uiFi.randomButton;
     courses = coursesFi;
     renderCards(sortCourses(sort));
   }
