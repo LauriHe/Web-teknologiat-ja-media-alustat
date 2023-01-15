@@ -1,0 +1,28 @@
+{
+  "uiFi":{
+    "link1": "Etusivu",
+    "link2": "Ruokalistat",
+    "link3": "Ravintolat",
+    "link4": "Yhteystiedot",
+    "p1": "Missä tänään syötäisiin?",
+    "p2": "Missä tänään syötäisiin? Tuttu tarina ennen lounashetkeä. Palvelu etsii lähelläsi olevat lounaspaikat, sekä näyttää niiden päivittäisen lounaslistan. Viikottaiset lounaslistat ovat myös käytettävissäsi. Pääset niihin klikkaamalla ravintolan logoa.",
+    "langButton": "EN",
+    "dropbtn": "Järjestä",
+    "ascButton": "A - Ö",
+    "descButton": "Ö - A",
+    "randomButton": "Valitse satunnainen ruoka"
+  },
+  "uiEn":{
+    "link1": "Home",
+    "link2": "Lucnh menus",
+    "link3": "Restaurants",
+    "link4": "Contact",
+    "p1": "Where to eat today?",
+    "p2": "Where to eat today? A familiar story before lunch. The service searches lunch restaurants near you and displays their daily menus. Weekly lunch menus are also available. See them by clicking the restauran's logo.",
+    "langButton": "FI",
+    "dropbtn": "Sort by",
+    "ascButton": "A - Z",
+    "descButton": "Z - A",
+    "randomButton": "Pick a random course"
+  }
+}
