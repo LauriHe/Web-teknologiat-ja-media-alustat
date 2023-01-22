@@ -8,9 +8,14 @@
     "p2": "Missä tänään syötäisiin? Tuttu tarina ennen lounashetkeä. Palvelu etsii lähelläsi olevat lounaspaikat, sekä näyttää niiden päivittäisen lounaslistan. Viikottaiset lounaslistat ovat myös käytettävissäsi. Pääset niihin klikkaamalla ravintolan logoa.",
     "langButton": "EN",
     "dropbtn": "Järjestä",
-    "ascButton": "A - Ö",
-    "descButton": "Ö - A",
-    "randomButton": "Valitse satunnainen ruoka"
+    "nameAscButton": "A - Ö",
+    "nameDescButton": "Ö - A",
+    "priceAscButton": "Hinta nouseva",
+    "priceDescButton": "Hinta laskeva",
+    "filterPrice": "Alle 5€ ruoat",
+    "filterVeg": "Vegaaniset ruoat",
+    "randomButton": "Valitse satunnainen ruoka",
+    "menuPrice" : "Koko menun hinta:"
   },
   "uiEn":{
     "link1": "Home",
@@ -21,8 +26,13 @@
     "p2": "Where to eat today? A familiar story before lunch. The service searches lunch restaurants near you and displays their daily menus. Weekly lunch menus are also available. See them by clicking the restauran's logo.",
     "langButton": "FI",
     "dropbtn": "Sort by",
-    "ascButton": "A - Z",
-    "descButton": "Z - A",
-    "randomButton": "Pick a random course"
+    "nameAscButton": "A - Z",
+    "nameDescButton": "Z - A",
+    "priceAscButton": "Price ascending",
+    "priceDescButton": "Price descending",
+    "filterPrice": "Courses under 5€",
+    "filterVeg": "Vegetarian courses",
+    "randomButton": "Pick a random course",
+    "menuPrice" : "Price of the whole menu:"
   }
 }

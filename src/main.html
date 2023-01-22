@@ -51,12 +51,23 @@
         <div class="buttonsContainer">
           <div class="dropdown">
             <button class="dropbtn">Järjestä</button>
-            <div class="dropdownContent">
-              <button id="asc" value="asc">A - Ö</button>
-              <button id="desc" value="desc">Ö - A</button>
+            <div class="dropdownContent sortContent">
+              <button id="nameAsc" value="nameAsc">A - Ö</button>
+              <button id="nameDesc" value="nameDesc">Ö - A</button>
+              <button id="priceAsc" value="priceAsc">Hinta nouseva</button>
+              <button id="priceDesc" value="priceDesc">Hinta laskeva</button>
             </div>
           </div>
+          <div class="dropdown">
+            <button class="dropbtn">Suodata</button>
+            <div class="dropdownContent filterContent">
+              <button id="filterPrice" value="price">Alle 5€ ruoat</button>
+              <button id="filterVeg" value="veg">Vegaaniset ruoat</button>
+            </div>
+          </div>
+
           <button id="randomButton">Valitse satunnainen ruoka</button>
+          <p id="menuPrice">Koko menun hinta:</p>
         </div>
       </section>
       <section id="mainCards"></section>
