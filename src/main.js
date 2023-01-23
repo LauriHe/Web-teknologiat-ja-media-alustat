@@ -6,12 +6,17 @@ Object.entries(lunchMenu.courses).forEach((course) => {
   sodexoCourses.push(course.pop());
 });
 
-import fazerFi from "./modules/fazerFi.json";
-let fazerCoursesFi = [];
-Object.entries(fazerFi.MenusForDays.SetMenus).forEach((menu) => {
-  fazerCoursesFi.push(menu);
+import fazerfi from "./modules/fazerFi.json";
+let fazerCoursesfi = [];
+Object.entries(fazerfi.MenusForDays[0].SetMenus).forEach((menu) => {
+  fazerCoursesfi.push(menu[1]);
 });
-console.log("fazer courses: " + fazerCoursesFi);
+
+import fazeren from "./modules/fazerEn.json";
+let fazerCoursesen = [];
+Object.entries(fazeren.MenusForDays[0].SetMenus).forEach((menu) => {
+  fazerCoursesen.push(menu[1]);
+});
 
 import uiList from "./modules/ui.json";
 const uifi = uiList.uiFi;
@@ -20,6 +25,8 @@ const uien = uiList.uiEn;
 import variables from "./modules/mainVariables";
 
 import sodexoFunctions from "./modules/sodexoFunctions";
+
+import fazerFunctions from "./modules/fazerFunctions";
 
 const changelang = () => {
   if (variables.lang === "fi") {
@@ -36,11 +43,17 @@ const changelang = () => {
   variables.langButton.textContent = eval(
     "ui" + variables.lang + ".langButton"
   );
-  variables.dropbtn.textContent = eval("ui" + variables.lang + ".dropbtn");
+  variables.dropRestaurant.textContent = eval(
+    "ui" + variables.lang + ".dropRestaurant"
+  );
+  variables.dropSort.textContent = eval("ui" + variables.lang + ".dropSort");
+  variables.dropFilter.textContent = eval(
+    "ui" + variables.lang + ".dropFilter"
+  );
   variables.nameAscButton.textContent = eval(
     "ui" + variables.lang + ".nameAscButton"
   );
-  variables.namedescButton.textContent = eval(
+  variables.nameDescButton.textContent = eval(
     "ui" + variables.lang + ".nameDescButton"
   );
   variables.priceAscButton.textContent = eval(
@@ -59,8 +72,13 @@ const changelang = () => {
     "ui" + variables.lang + ".randomButton"
   );
   variables.menuPrice.textContent = eval("ui" + variables.lang + ".menuPrice");
-  menuPriceCalc();
-  renderCards(sortCourses(variables.sort));
+  if (variables.restaurant === "sodexo") {
+    sodexoFunctions.menuPriceCalc();
+    sodexoFunctions.renderCards(sodexoFunctions.sortCourses(variables.sort));
+  }
+  if (variables.restaurant === "fazer") {
+    fazerFunctions.renderCards(eval("fazerCourses" + variables.lang));
+  }
 };
 
 const validateName = (name) => {
@@ -73,34 +91,42 @@ variables.restaurantButtons.forEach((child) => {
     variables.restaurant = child.value;
     if (child.value === "sodexo") {
       sodexoFunctions.renderCards(sodexoCourses);
+      variables.restaurant = "sodexo";
     }
     if (child.value === "fazer") {
       if (variables.lang === "fi") {
-        fazerFunctions.renderCards(fazerCoursesFi);
+        fazerFunctions.renderCards(fazerCoursesfi);
       } else {
-        fazerFunctions.renderCards(fazerCoursesEn);
+        fazerFunctions.renderCards(fazerCoursesen);
       }
+      variables.restaurant = "fazer";
     }
   });
 });
 
 variables.sortButtons.forEach((child) => {
   child.addEventListener("click", () => {
-    sodexoFunctions.renderCards(sodexoFunctions.sortCourses(child.value));
+    if (variables.restaurant === "sodexo") {
+      sodexoFunctions.renderCards(sodexoFunctions.sortCourses(child.value));
+    }
   });
 });
 
 variables.filterButtons.forEach((child) => {
   child.addEventListener("click", () => {
-    sodexoFunctions.renderCards(sodexoFunctions.filterCourses(child.value));
+    if (variables.restaurant === "sodexo") {
+      sodexoFunctions.renderCards(sodexoFunctions.filterCourses(child.value));
+    }
   });
 });
 
 variables.randomButton.addEventListener("click", () => {
-  const randomCourse =
-    sodexoCourses[Math.floor(Math.random() * sodexoCourses.length)];
-  variables.modal.classList.remove("hidden");
-  sodexoFunctions.renderModal(randomCourse);
+  if (variables.restaurant === "sodexo") {
+    const randomCourse =
+      sodexoCourses[Math.floor(Math.random() * sodexoCourses.length)];
+    variables.modal.classList.remove("hidden");
+    sodexoFunctions.renderModal(randomCourse);
+  }
 });
 
 variables.closeButton.addEventListener("click", () => {

@@ -21,7 +21,6 @@ const raisePrices = () => {
       price: (course.price * 1.15).toFixed(2),
     };
   });
-  console.log(sodexoCourses);
 };
 
 const sortCourses = (sort) => {
