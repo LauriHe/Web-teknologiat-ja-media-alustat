@@ -6,7 +6,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: "./src/main.js",
+    app: "./src/events.js",
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -24,7 +24,7 @@ module.exports = {
       meta: {
         viewport: "width=device-width, initial-scale=1.0",
       },
-      template: "./src/main.html",
+      template: "./src/events.html",
       minify: {
         removeComments: true,
         collapseWhitespace: true,
