@@ -1,3 +1,7 @@
+import uiList from "./ui.json";
+
+const uifi = uiList.uiFi;
+const uien = uiList.uiEn;
 const link1 = document.querySelector("#link1");
 const link2 = document.querySelector("#link2");
 const link3 = document.querySelector("#link3");
@@ -34,6 +38,8 @@ let sort = "";
 let restaurant = "sodexo";
 
 const variables = {
+  uifi,
+  uien,
   link1,
   link2,
   link3,
