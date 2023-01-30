@@ -20,7 +20,7 @@ module.exports = {
       ],
     }),
     new HtmlWebpackPlugin({
-      title: "WTMP Starter",
+      title: "Lounari pwa",
       meta: {
         viewport: "width=device-width, initial-scale=1.0",
       },
