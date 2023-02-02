@@ -1,6 +1,6 @@
 "use strict";
 
-/*if (APP_CONF.productionMode && "serviceWorker" in navigator) {
+if (APP_CONF.productionMode && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
       .register("./service-worker.js")
@@ -11,7 +11,7 @@
         console.log("SW registration failed: ", registrationError);
       });
   });
-}*/
+}
 
 import variables from "./modules/mainVariables";
 

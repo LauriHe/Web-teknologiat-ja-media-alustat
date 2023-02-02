@@ -8,7 +8,7 @@
       src="https://kit.fontawesome.com/f30e376f7f.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
     <title>Viikko 3 lounari</title>
   </head>
   <body>
@@ -17,7 +17,7 @@
       <nav>
         <div id="navDiv">
           <button id="menuButton">
-            <img src="../images/menu.svg" alt="menu" />
+            <img src="assets/images/menu.svg" alt="menu" />
           </button>
           <ul>
             <li class="link"><a href="#">Etusivu</a></li>
@@ -27,7 +27,7 @@
           </ul>
           <div id="searchBar">
             <img
-              src="../images/search.svg"
+              src="assets/images/search.svg"
               alt="search"
               width="32px"
               height="32px"
@@ -62,6 +62,34 @@
             päivittäisen lounaslistan. Viikottaiset lounaslistat ovat myös
             käytettävissäsi. Pääset niihin klikkaamalla ravintolan logoa.
           </p>
+          <div class="buttonsContainer">
+            <div class="dropdown">
+              <button class="dropRestaurant">Ravintola</button>
+              <div class="dropdownContent restaurantContent">
+                <button id="sodexoButton" value="sodexo">sodexo</button>
+                <button id="fazerButton" value="fazer">fazer</button>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="dropSort">Järjestä</button>
+              <div class="dropdownContent sortContent">
+                <button id="nameAsc" value="nameAsc">A - Ö</button>
+                <button id="nameDesc" value="nameDesc">Ö - A</button>
+                <button id="priceAsc" value="priceAsc">Hinta nouseva</button>
+                <button id="priceDesc" value="priceDesc">Hinta laskeva</button>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="dropFilter">Suodata</button>
+              <div class="dropdownContent filterContent">
+                <button id="filterPrice" value="price">Alle 5€ ruoat</button>
+                <button id="filterVeg" value="veg">Vegaaniset ruoat</button>
+              </div>
+            </div>
+
+            <button id="randomButton">Valitse satunnainen ruoka</button>
+            <p id="menuPrice">Koko menun hinta:</p>
+          </div>
         </section>
         <section id="mainCards"></section>
       </main>

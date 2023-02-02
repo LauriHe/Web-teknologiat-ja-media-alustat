@@ -197,8 +197,10 @@ figure {
 #mainText {
   width: 100%;
   padding: 1rem 0;
-  display: none;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
   background-color: white;
 }
 
@@ -209,6 +211,61 @@ figure {
   line-height: 1.4;
   color: var(--main-color);
   text-align: justify;
+}
+
+button {
+  border: 2px solid var(--nav-color);
+  background-color: white;
+  border-radius: 0.5em;
+  height: 2.5em;
+  padding: 0 0.5em;
+  font-family: Lato-Regular;
+  font-size: 1em;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(235, 235, 235);
+}
+
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.dropbtn {
+  width: 5em;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  border-radius: 1em;
+  width: 10em;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdownContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdownContent button {
+  width: 100%;
+  border: none;
+}
+
+.dropdownContent button:hover {
+  background-color: #f3f3f3;
 }
 
 #mainCards {
@@ -336,6 +393,56 @@ figure {
   background-image: url(../images/plus-dark.svg);
 }
 
+.modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 5em;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.modalBox {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  border-radius: 0.5rem;
+  padding: 1em;
+  width: 35rem;
+  background-color: white;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+#closeButton {
+  border: none;
+  width: 1em;
+  height: 1em;
+  color: #aaaaaa;
+  float: right;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#closeButton:hover,
+#closeButton:focus {
+  background-color: white;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @media (min-width: 500px) {
   #searchBar {
     width: 360px;
@@ -348,6 +455,19 @@ figure {
   }
 }
 
+@media (max-width: 650px) {
+  #figureBackground {
+    width: 100%;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  #figureText {
+    width: 100%;
+  }
+  #image {
+    display: none;
+  }
+}
+
 @media (min-width: 650px) {
   #mainText {
     display: flex;
@@ -357,15 +477,6 @@ figure {
   }
   .cardText {
     width: 65%;
-  }
-}
-
-@media (max-width: 650px) {
-  #figureText {
-    width: 100%;
-  }
-  #image {
-    display: none;
   }
 }
 
