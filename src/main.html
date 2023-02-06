@@ -12,88 +12,78 @@
     <title>Lounari</title>
   </head>
   <body>
-    <div class="mask"></div>
-    <div class="container">
-      <nav>
-        <div id="navDiv">
-          <button id="menuButton">
-            <img src="assets/images/menu.svg" alt="menu" />
-          </button>
-          <ul>
-            <li class="link"><a href="#">Etusivu</a></li>
-            <li class="link"><a href="#">Ruokalistat</a></li>
-            <li class="link"><a href="#">Ravintolat</a></li>
-            <li class="link"><a href="#">Yhteystiedot</a></li>
-          </ul>
-          <div id="searchBar">
-            <img
-              src="assets/images/search.svg"
-              alt="search"
-              width="32px"
-              height="32px"
-              class="icon"
-            />
-            <input
-              type="text"
-              name="search"
-              id="searchInput"
-              placeholder="Hae ravintolan nimellä"
-            />
+    <nav>
+      <div id="navDiv">
+        <button id="menuButton"><i class="fa-solid fa-bars"></i></button>
+        <ul>
+          <li class="link"><a href="#" id="link1">Etusivu</a></li>
+          <li class="link"><a href="#" id="link2">Ruokalistat</a></li>
+          <li class="link"><a href="#" id="link3">Ravintolat</a></li>
+          <li class="link"><a href="#" id="link4">Yhteystiedot</a></li>
+        </ul>
+        <div id="searchAndLang">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" name="search" id="searchInput" />
+          <button id="langButton">EN</button>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <figure>
+        <div id="figureBackground">
+          <div>
+            <h1>
+              <span>L</span><span>o</span><span>u</span><span>n</span
+              ><span>a</span><span>r</span><span>i</span><span>.</span>
+            </h1>
+            <p id="p1">Missä tänään syötäisiin?</p>
           </div>
         </div>
-      </nav>
-      <main>
-        <figure>
-          <div id="figureBackground">
-            <div id="figureText">
-              <h1>
-                <span>L</span><span>o</span><span>u</span><span>n</span
-                ><span>a</span><span>r</span><span>i</span><span>.</span>
-              </h1>
-              <p>Missä tänään syötäisiin?</p>
+        <img src="assets/images/food.webp" alt="food" />
+      </figure>
+      <section id="mainText">
+        <p id="p2">
+          Missä tänään syötäisiin? Tuttu tarina ennen lounashetkeä. Palvelu
+          etsii lähelläsi olevat lounaspaikat, sekä näyttää niiden päivittäisen
+          lounaslistan. Viikottaiset lounaslistat ovat myös käytettävissäsi.
+          Pääset niihin klikkaamalla ravintolan logoa.
+        </p>
+        <div class="buttonsContainer">
+          <div class="dropdown">
+            <button class="dropRestaurant">Ravintola</button>
+            <div class="dropdownContent restaurantContent">
+              <button id="sodexoButton" value="sodexo">sodexo</button>
+              <button id="fazerButton" value="fazer">fazer</button>
             </div>
           </div>
-          <div id="image"></div>
-        </figure>
-        <section id="mainText">
-          <p>
-            Missä tänään syötäisiin? Tuttu tarina ennen lounashetkeä. Palvelu
-            etsii lähelläsi olevat lounaspaikat, sekä näyttää niiden
-            päivittäisen lounaslistan. Viikottaiset lounaslistat ovat myös
-            käytettävissäsi. Pääset niihin klikkaamalla ravintolan logoa.
-          </p>
-          <div class="buttonsContainer">
-            <div class="dropdown">
-              <button class="dropRestaurant">Ravintola</button>
-              <div class="dropdownContent restaurantContent">
-                <button id="sodexoButton" value="sodexo">sodexo</button>
-                <button id="fazerButton" value="fazer">fazer</button>
-              </div>
+          <div class="dropdown">
+            <button class="dropSort">Järjestä</button>
+            <div class="dropdownContent sortContent">
+              <button id="nameAsc" value="nameAsc">A - Ö</button>
+              <button id="nameDesc" value="nameDesc">Ö - A</button>
+              <button id="priceAsc" value="priceAsc">Hinta nouseva</button>
+              <button id="priceDesc" value="priceDesc">Hinta laskeva</button>
             </div>
-            <div class="dropdown">
-              <button class="dropSort">Järjestä</button>
-              <div class="dropdownContent sortContent">
-                <button id="nameAsc" value="nameAsc">A - Ö</button>
-                <button id="nameDesc" value="nameDesc">Ö - A</button>
-                <button id="priceAsc" value="priceAsc">Hinta nouseva</button>
-                <button id="priceDesc" value="priceDesc">Hinta laskeva</button>
-              </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropFilter">Suodata</button>
+            <div class="dropdownContent filterContent">
+              <button id="filterPrice" value="price">Alle 5€ ruoat</button>
+              <button id="filterVeg" value="veg">Vegaaniset ruoat</button>
             </div>
-            <div class="dropdown">
-              <button class="dropFilter">Suodata</button>
-              <div class="dropdownContent filterContent">
-                <button id="filterPrice" value="price">Alle 5€ ruoat</button>
-                <button id="filterVeg" value="veg">Vegaaniset ruoat</button>
-              </div>
-            </div>
+          </div>
 
-            <button id="randomButton">Valitse satunnainen ruoka</button>
-            <p id="menuPrice">Koko menun hinta:</p>
-          </div>
-        </section>
-        <section id="mainCards"></section>
-      </main>
-    </div>
-    <div class="mask"></div>
+          <button id="randomButton">Valitse satunnainen ruoka</button>
+          <p id="menuPrice">Koko menun hinta:</p>
+        </div>
+      </section>
+      <section id="mainCards"></section>
+      <div class="modal hidden">
+        <div class="modalBox">
+          <div class="modalContent"></div>
+          <button id="closeButton"><i class="fa-solid fa-x"></i></button>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

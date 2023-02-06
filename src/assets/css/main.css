@@ -1,35 +1,28 @@
 @font-face {
-  font-family: "RobotoSlab-ExtraBold";
-  src: url(../fonts/RobotoSlab-ExtraBold.ttf);
+  font-family: "RobotoSlab";
+  src: url(../fonts/RobotoSlab-VariableFont_wght.ttf);
 }
 
 @font-face {
-  font-family: "RobotoSlab-Regular";
-  src: url(../fonts/RobotoSlab-Regular.ttf);
+  font-family: "Roboto-regular";
+  src: url(../fonts/Roboto-Regular.ttf);
 }
 
 @font-face {
-  font-family: "Lato-Black";
-  src: url(../fonts/Lato-Black.ttf);
+  font-family: "Roboto-medium";
+  src: url(../fonts/Roboto-Medium.ttf);
 }
 
 @font-face {
-  font-family: "Lato-Bold";
-  src: url(../fonts/Lato-Bold.ttf);
-}
-
-@font-face {
-  font-family: "Lato-Regular";
-  src: url(../fonts/Lato-Regular.ttf);
+  font-family: "Roboto-bold";
+  src: url(../fonts/Roboto-Bold.ttf);
 }
 
 :root {
-  --nav-color: #940e3f;
-  --nav-color-light: #e0437c;
+  --nav-color: #950b40;
+  --nav-color-dark: #4b0620;
   --figure-color: #43e04f;
   --main-color: #343a40;
-  --main-secondary-color: #9badbf;
-  --main-color-dark: #000000;
 }
 
 * {
@@ -38,33 +31,24 @@
   box-sizing: border-box;
 }
 
+.hidden {
+  display: none !important;
+}
+
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100vw;
+  font-family: "Roboto-regular";
   overflow-x: hidden;
-  font-family: Lato-Regular;
-}
-
-.container {
-  width: 100%;
-}
-
-.mask {
-  height: 100%;
-  background-color: white;
 }
 
 #navDiv {
   width: 100%;
-  height: fit-content;
+  height: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   list-style: none;
-  padding: 1rem 1rem;
-  background-color: white;
+  padding: 0 5%;
 }
 
 #navDiv > ul {
@@ -76,22 +60,14 @@ body {
 .link {
   display: none;
   font-size: 1.5rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
 }
 
 .link a {
-  font-family: Lato-Bold;
-  font-size: 1.5rem;
   color: var(--nav-color);
 }
 
-.link:hover {
-  background-color: var(--nav-color-light);
-}
-
-.link:hover a {
-  color: white;
+.link a:hover {
+  color: var(--nav-color-dark);
 }
 
 #menuButton {
@@ -103,37 +79,46 @@ body {
   cursor: pointer;
 }
 
-#menuButton > img {
-  height: 3rem;
+#menuButton > i {
+  font-size: 2.5em;
+  color: var(--nav-color);
 }
 
-#searchBar {
+#searchAndLang {
   display: flex;
-  justify-content: flex-start;
+  justify-content: end;
   align-items: center;
+  gap: 0.5rem;
   width: 80%;
-  border: 2px solid var(--nav-color);
-  border-radius: 0.5em;
-  padding: 0 0.5em;
 }
 
-#searchBar img {
-  height: 2.5em;
-}
-
-.icon {
-  padding-top: 0.5em;
+#searchAndLang i {
+  font-size: 1.5rem;
+  color: var(--nav-color);
 }
 
 #searchInput {
-  border: none;
-  margin: 0.5em;
-  height: 2em;
+  border: 2px solid var(--nav-color);
+  border-radius: 0.5em;
+  height: 2.5em;
   width: 80%;
+  font-family: "Roboto-regular";
   font-size: 1em;
 }
-#searchInput:focus {
-  outline: none;
+
+button {
+  border: 2px solid var(--nav-color);
+  background-color: white;
+  border-radius: 0.5em;
+  height: 2.5em;
+  padding: 0 0.5em;
+  font-family: "Roboto-regular";
+  font-size: 1em;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(235, 235, 235);
 }
 
 main {
@@ -141,6 +126,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 1em;
 }
 
 figure {
@@ -150,82 +136,62 @@ figure {
 }
 
 #figureBackground {
-  width: 60%;
+  width: 100%;
   height: 100%;
   background-color: var(--figure-color);
   display: flex;
   align-items: center;
-  clip-path: polygon(0% 0%, 82% 0%, 88% 100%, 0% 100%);
 }
 
-#figureText {
+#figureBackground > div {
   margin-left: 5%;
   width: 45%;
 }
 
 #figureBackground h1 {
-  display: flex;
-  gap: 0.3rem;
+  font-size: 2rem;
+  font-family: "RobotoSlab";
+  font-weight: 900;
+  color: white;
 }
 
 #figureBackground span {
-  color: white;
-  font-family: RobotoSlab-ExtraBold;
-  font-size: 3.75rem;
+  margin: 0 0.3rem;
 }
 
 #figureBackground p {
-  font-size: 1.438rem;
-  font-family: RobotoSlab-Regular;
+  font-size: 1rem;
+  font-family: "RobotoSlab";
+  font-weight: 300;
   color: white;
 }
 
-#image {
-  position: fixed;
-  width: 51%;
-  height: 22rem;
-  background-image: url(../images/food.webp);
-  background-size: cover;
-  background-position: center;
-  object-fit: cover;
-  z-index: -1;
-  top: 0rem;
+figure > img {
+  width: 60%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
   right: 0;
-  transform: scaleX(-1);
+  object-fit: cover;
+  clip-path: polygon(16% 0%, 100% 0, 100% 100%, 22% 100%);
 }
 
 #mainText {
   width: 100%;
-  padding: 1rem 0;
+  margin: 1em 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
-  background-color: white;
 }
 
 #mainText > p {
   width: 90%;
   text-align: center;
-  font-size: 1.3rem;
-  line-height: 1.4;
+  font-family: "Roboto-regular";
+  font-size: 1.2rem;
   color: var(--main-color);
-  text-align: justify;
-}
-
-button {
-  border: 2px solid var(--nav-color);
-  background-color: white;
-  border-radius: 0.5em;
-  height: 2.5em;
-  padding: 0 0.5em;
-  font-family: Lato-Regular;
-  font-size: 1em;
-}
-
-button:hover {
-  cursor: pointer;
-  background-color: rgb(235, 235, 235);
 }
 
 .buttonsContainer {
@@ -269,128 +235,26 @@ button:hover {
 }
 
 #mainCards {
-  width: 100%;
+  width: 90%;
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  padding: 1rem;
-  margin-bottom: 1rem;
-  background-color: white;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
 }
 
 .card {
-  border: 2px solid var(--main-color);
+  border: 1px solid var(--main-color);
   border-radius: 0.5rem;
-  padding: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.cardImage {
-  display: none;
-  width: 35%;
-  height: 100%;
-  padding: 2rem 0;
-  border-radius: 0.5rem;
-  border: 2px solid var(--main-color);
-  justify-content: center;
-  align-items: center;
-}
-.cardImage {
-  cursor: pointer;
-}
-
-.cardImage img {
-  width: 100%;
-}
-
-.cardText {
-  width: 100%;
+  padding: 0 1em;
+  height: 17rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-}
-
-.cardHeader {
-  font-family: Lato-Black;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cardHeader div {
-  display: flex;
-  align-items: center;
-}
-
-.locationImage {
-  width: 2rem;
-  height: 2rem;
-  background-image: url(../images/location.svg);
-  background-size: cover;
-}
-
-.cardLocation:hover {
-  cursor: pointer;
-}
-
-.cardLocation:hover .locationImage {
-  background-image: url(../images/location-green.svg);
-}
-
-.cardHeader > div > p {
-  font-size: 0.88rem;
-}
-
-.cardText h2 {
-  font-size: 1.3rem;
-}
-
-.cardText h3 {
-  font-size: 0.65rem;
-}
-
-.cardText p {
-  font-size: 0.65rem;
-}
-
-.plusCard {
-  border: 2px dashed var(--main-secondary-color);
-  display: flex;
   justify-content: flex-start;
+  text-align: center;
+  gap: 1em;
 }
 
-.plusCard > div {
-  height: fit-content;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.plusCard h3 {
-  color: var(--main-secondary-color);
-  font-size: 0.88rem;
-}
-
-.plusImage {
-  width: 2rem;
-  height: 2rem;
-  background-image: url(../images/plus.svg);
-  background-size: cover;
-}
-
-.plusCard:hover {
-  cursor: pointer;
-  border-color: var(--main-color-dark);
-}
-
-.plusCard:hover h3 {
-  color: var(--main-color-dark);
-}
-
-.plusCard:hover .plusImage {
-  background-image: url(../images/plus-dark.svg);
+.card h3 {
+  margin-top: 2em;
 }
 
 .modal {
@@ -444,52 +308,33 @@ button:hover {
 }
 
 @media (min-width: 500px) {
-  #searchBar {
-    width: 360px;
+  #searchAndLang {
+    width: 310px;
   }
   #searchInput {
     width: 95%;
   }
   #mainCards {
-    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  }
-}
-
-@media (max-width: 650px) {
-  #figureBackground {
-    width: 100%;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-  }
-  #figureText {
-    width: 100%;
-  }
-  #image {
-    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   }
 }
 
 @media (min-width: 650px) {
-  #mainText {
-    display: flex;
+  #figureBackground > div > h1 {
+    font-size: 3rem;
   }
-  .cardImage {
-    display: flex;
-  }
-  .cardText {
-    width: 65%;
+  #figureBackground > div > p {
+    font-size: 1.2rem;
   }
 }
 
-@media (min-width: 820px) {
-  #mainText > p {
-    width: 737px;
+@media (min-width: 960px) {
+  #figureBackground > div > h1 {
+    font-size: 4rem;
   }
-  #mainCards {
-    grid-template-columns: repeat(auto-fill, minmax(34rem, 1fr));
+  #figureBackground > div > p {
+    font-size: 1.5rem;
   }
-}
-
-@media (min-width: 1050px) {
   #menuButton {
     display: none;
   }
@@ -498,18 +343,12 @@ button:hover {
   }
   .link > a {
     text-decoration: none;
+    font-family: "Roboto-medium";
   }
 }
 
-@media (min-width: 1600px) {
-  body {
-    display: grid;
-    grid-template-columns: 1fr 1600px 1fr;
-  }
-  #navDiv {
-    padding: 1rem 0;
-  }
-  #mainCards {
-    padding: 0;
+@media (min-width: 1000px) {
+  #mainText > p {
+    width: 870px;
   }
 }

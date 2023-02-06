@@ -1,16 +1,21 @@
-import lunchMenu from "./sodexo.json";
-let sodexoCourses = [];
-Object.entries(lunchMenu.courses).forEach((course) => {
-  sodexoCourses.push(course.pop());
-});
+import { doFetch } from "./network";
 
-const getSodexoCourses = (lang) => {
+const getSodexoCourses = async (lang) => {
+  let sodexoCourses = [];
+
+  const dailyMenu = await doFetch(
+    "https://www.sodexo.fi/ruokalistat/output/daily_json/152/2023-01-30"
+  );
+  Object.entries(dailyMenu.courses).forEach((course) => {
+    sodexoCourses.push(course.pop());
+  });
+
   const courses = [];
   if (lang === "en") {
     sodexoCourses.forEach((sodexoCourse) => {
       const name = sodexoCourse.title_en;
       const properties = sodexoCourse.properties;
-      const price = sodexoCourse.price;
+      const price = sodexoCourse.price.split("€")[0].replace(",", ".");
 
       const course = {
         name: name,
@@ -25,7 +30,7 @@ const getSodexoCourses = (lang) => {
     sodexoCourses.forEach((sodexoCourse) => {
       const name = sodexoCourse.title_fi;
       const properties = sodexoCourse.properties;
-      const price = sodexoCourse.price;
+      const price = sodexoCourse.price.split("€")[0].replace(",", ".");
 
       const course = {
         name: name,
