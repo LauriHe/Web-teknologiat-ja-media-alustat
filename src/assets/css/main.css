@@ -85,6 +85,7 @@ body {
 }
 
 #searchAndLang {
+  position: relative;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -104,6 +105,33 @@ body {
   width: 80%;
   font-family: "Roboto-regular";
   font-size: 1em;
+  padding: 0 0.5em;
+}
+
+#suggestions {
+  position: absolute;
+  overflow: hidden;
+  width: 75%;
+  z-index: 3;
+  left: 2em;
+  top: 3em;
+  background-color: white;
+  border-radius: 0.5em;
+  box-shadow: 10px 9px 34px -1px rgba(0, 0, 0, 0.19);
+}
+
+#suggestions li {
+  list-style: none;
+  padding: 0.5em;
+  border-bottom: 1px solid #e3e3e3;
+}
+#suggestions li:last-child {
+  border-bottom: none;
+}
+
+#suggestions li:hover {
+  background-color: #e1e1e1;
+  cursor: pointer;
 }
 
 button {
