@@ -14,12 +14,19 @@
 import { doFetch } from "./network";
 
 const getSodexoCourses = async (lang) => {
+  // Get the current date
+  const year = new Date().getFullYear();
+  let month = new Date().getMonth() + 1;
+  const day = new Date().getDate();
+  if (month < 10) {
+    month = "0" + month;
+  }
   // Array to store the courses
   let sodexoCourses = [];
 
   // Fetch the daily menu from Sodexo API
   const dailyMenu = await doFetch(
-    "https://www.sodexo.fi/ruokalistat/output/daily_json/152/2023-01-30"
+    `https://www.sodexo.fi/ruokalistat/output/daily_json/152/${year}-${month}-${day}`
   );
   // Push the courses to the array
   Object.entries(dailyMenu.courses).forEach((course) => {
