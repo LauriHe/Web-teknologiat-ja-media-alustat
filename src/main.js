@@ -17,6 +17,8 @@ const suggestions = document.querySelector("#suggestions");
 const p1 = document.querySelector("#p1");
 const p2 = document.querySelector("#p2");
 const langButton = document.querySelector("#langButton");
+const themeButton = document.querySelector("#themeButton");
+const themeIcon = document.querySelector("#themeIcon");
 const dropRestaurant = document.querySelector(".dropRestaurant");
 const dropSort = document.querySelector(".dropSort");
 const dropFilter = document.querySelector(".dropFilter");
@@ -41,7 +43,8 @@ const closeButton = document.querySelector("#closeButton");
 const modal = document.querySelector(".modal");
 const modalContent = document.querySelector(".modalContent");
 
-let lang = "fi";
+let activeLang;
+let activeTheme;
 let sort = "";
 let restaurant = "sodexo";
 let activeMenus = [];
@@ -49,6 +52,16 @@ let activeMenus = [];
 // Render the courses as cards on the page
 const renderCards = async (courses) => {
   mainCards.innerHTML = "";
+
+  if (courses.length === 0) {
+    const noCourses = document.createElement("p");
+    noCourses.textContent = "No courses found";
+    mainCards.appendChild(noCourses);
+    mainCards.style.display = "flex";
+    mainCards.style.justifyContent = "center";
+    mainCards.style.alignItems = "center";
+    mainCards.style.height = "20rem";
+  }
 
   await courses.forEach((course) => {
     const card = document.createElement("article");
@@ -72,30 +85,40 @@ const renderCards = async (courses) => {
 
 // Render a modal to display the course details
 const renderModal = (course) => {
-  modal.classList.remove("hidden");
-  modalContent.textContent = "";
+  try {
+    modal.classList.remove("hidden");
+    modalContent.textContent = "";
 
-  const title = document.createElement("h3");
-  title.textContent = course.name;
+    const title = document.createElement("h3");
+    title.textContent = course.name;
 
-  const properties = document.createElement("p");
-  properties.textContent = course.properties;
+    const properties = document.createElement("p");
+    properties.textContent = course.properties;
 
-  const price = document.createElement("p");
-  price.textContent = course.price + " €";
+    const price = document.createElement("p");
+    price.textContent = course.price + " €";
 
-  modalContent.appendChild(title);
-  modalContent.appendChild(properties);
-  modalContent.appendChild(price);
+    modalContent.appendChild(title);
+    modalContent.appendChild(properties);
+    modalContent.appendChild(price);
+  } catch (error) {
+    modal.classList.remove("hidden");
+    modalContent.textContent = "";
+
+    const title = document.createElement("h3");
+    title.textContent = "No details found";
+
+    modalContent.appendChild(title);
+  }
 };
 
 // Calculate the total price of the current menu
 const menuPriceCalc = async () => {
   // Change the text of the menu price depending on the language
-  if (lang === "fi") {
+  if (activeLang === "fi") {
     menuPrice.textContent = "Hinta: ";
   }
-  if (lang === "en") {
+  if (activeLang === "en") {
     menuPrice.textContent = "Price: ";
   }
 
@@ -195,14 +218,17 @@ const filterCourses = (filter, courses) => {
   }
 };
 
-// Change the language of the page
-const changelang = async () => {
-  // Change the language variable
-  if (lang === "fi") {
-    lang = "en";
-  } else {
-    lang = "fi";
+// Get the language from local storage or set it to finnish if it doesn't exist
+const getLang = () => {
+  if (localStorage.getItem("lang") === null) {
+    localStorage.setItem("lang", "fi");
   }
+  return localStorage.getItem("lang");
+};
+
+// Change the language of the page
+const setLang = async (lang) => {
+  localStorage.setItem("lang", lang);
 
   // Change the language of all ui elements. Text content is taken from ui json file.
   link1.textContent = eval("ui" + lang + ".link1");
@@ -232,6 +258,27 @@ const changelang = async () => {
   if (restaurant === "fazer") {
     menuPriceCalc();
     renderCards(sortCourses(sort, await getFazerCourses(lang)));
+  }
+};
+
+// Get the theme from local storage. If it doesn't exist, set it to light.
+const getTheme = () => {
+  if (localStorage.getItem("theme") === null) {
+    localStorage.setItem("theme", "light");
+  }
+  return localStorage.getItem("theme");
+};
+
+// Change the color variables used in the css file.
+const setTheme = (theme) => {
+  localStorage.setItem("theme", theme);
+  document.documentElement.className = theme;
+  if (activeTheme === "light") {
+    themeIcon.classList.remove("fa-sun");
+    themeIcon.classList.add("fa-moon");
+  } else {
+    themeIcon.classList.remove("fa-moon");
+    themeIcon.classList.add("fa-sun");
   }
 };
 
@@ -349,11 +396,41 @@ closeButton.addEventListener("click", () => {
 });
 
 // Change language
-langButton.addEventListener("click", changelang);
+langButton.addEventListener("click", () => {
+  if (activeLang === "fi") {
+    activeLang = "en";
+    setLang(activeLang);
+  } else {
+    activeLang = "fi";
+    setLang(activeLang);
+  }
+});
+
+// Change theme
+themeButton.addEventListener("click", () => {
+  if (activeTheme === "light") {
+    activeTheme = "dark";
+    setTheme(activeTheme);
+  } else {
+    activeTheme = "light";
+    setTheme(activeTheme);
+  }
+});
 
 // Get menu data from api and render cards
 const initialize = async () => {
-  activeMenus = [await getSodexoCourses(lang), await getFazerCourses(lang)];
+  activeLang = getLang();
+
+  setLang(activeLang);
+
+  activeTheme = getTheme();
+
+  setTheme(activeTheme);
+
+  activeMenus = [
+    await getSodexoCourses(activeLang),
+    await getFazerCourses(activeLang),
+  ];
 
   raisePrices();
 
@@ -364,7 +441,7 @@ const initialize = async () => {
 
 initialize();
 
-/*if (APP_CONF.productionMode && "serviceWorker" in navigator) {
+if (APP_CONF.productionMode && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
       .register("./service-worker.js")
@@ -375,4 +452,4 @@ initialize();
         console.log("SW registration failed: ", registrationError);
       });
   });
-}*/
+}

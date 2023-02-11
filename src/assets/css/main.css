@@ -18,11 +18,24 @@
   src: url(../fonts/Roboto-Bold.ttf);
 }
 
-:root {
+.light {
   --nav-color: #950b40;
   --nav-color-dark: #4b0620;
   --figure-color: #43e04f;
   --main-color: #343a40;
+  --background-color: white;
+  --text-color: black;
+  --hover-color: rgb(235, 235, 235);
+}
+
+.dark {
+  --nav-color: #c5175a;
+  --nav-color-dark: #e16b98;
+  --figure-color: #246329;
+  --main-color: #d2d2d2;
+  --background-color: rgb(15, 15, 15);
+  --text-color: white;
+  --hover-color: rgb(50, 50, 50);
 }
 
 * {
@@ -39,6 +52,7 @@ body {
   width: 100vw;
   font-family: "Roboto-regular";
   overflow-x: hidden;
+  background-color: var(--background-color);
 }
 
 #navDiv {
@@ -72,7 +86,7 @@ body {
 
 #menuButton {
   border: none;
-  background-color: white;
+  background-color: var(--background-color);
 }
 
 #menuButton:hover {
@@ -106,6 +120,8 @@ body {
   font-family: "Roboto-regular";
   font-size: 1em;
   padding: 0 0.5em;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 #suggestions {
@@ -115,7 +131,7 @@ body {
   z-index: 3;
   left: 2em;
   top: 3em;
-  background-color: white;
+  background-color: var(--background-color);
   border-radius: 0.5em;
   box-shadow: 10px 9px 34px -1px rgba(0, 0, 0, 0.19);
 }
@@ -130,13 +146,14 @@ body {
 }
 
 #suggestions li:hover {
-  background-color: #e1e1e1;
+  background-color: var(--hover-color);
   cursor: pointer;
 }
 
 button {
   border: 2px solid var(--nav-color);
-  background-color: white;
+  background-color: var(--background-color);
+  color: var(--text-color);
   border-radius: 0.5em;
   height: 2.5em;
   padding: 0 0.5em;
@@ -146,7 +163,11 @@ button {
 
 button:hover {
   cursor: pointer;
-  background-color: rgb(235, 235, 235);
+  background-color: var(--hover-color);
+}
+
+#themeButton i {
+  color: var(--text-color);
 }
 
 main {
@@ -228,6 +249,10 @@ figure > img {
   gap: 1em;
 }
 
+.buttonsContainer > p {
+  color: var(--text-color);
+}
+
 .dropbtn {
   width: 5em;
 }
@@ -240,7 +265,7 @@ figure > img {
 .dropdownContent {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: var(--background-color);
   border-radius: 1em;
   width: 10em;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -259,7 +284,7 @@ figure > img {
 }
 
 .dropdownContent button:hover {
-  background-color: #f3f3f3;
+  background-color: var(--hover-color);
 }
 
 #mainCards {
@@ -267,6 +292,10 @@ figure > img {
   display: grid;
   gap: 0.5rem;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+#mainCards > p {
+  color: var(--text-color);
 }
 
 .card {
@@ -308,13 +337,14 @@ figure > img {
   border-radius: 0.5rem;
   padding: 1em;
   width: 35rem;
-  background-color: white;
+  background-color: var(--background-color);
 }
 
 .modalContent {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  color: var(--text-color);
 }
 
 #closeButton {
@@ -329,7 +359,7 @@ figure > img {
 
 #closeButton:hover,
 #closeButton:focus {
-  background-color: white;
+  background-color: var(--background-color);
   color: #000;
   text-decoration: none;
   cursor: pointer;
