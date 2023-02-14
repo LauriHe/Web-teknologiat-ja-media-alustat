@@ -314,6 +314,10 @@ figure > img {
   margin-top: 2em;
 }
 
+article {
+  color: var(--text-color);
+}
+
 .modal {
   position: fixed;
   z-index: 1;

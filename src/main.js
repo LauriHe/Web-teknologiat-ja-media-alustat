@@ -130,7 +130,6 @@ const menuPriceCalc = async () => {
   if (restaurant === "fazer") {
     courses = activeMenus[1];
   }
-
   // Calculate the total price
   menuPrice.textContent +=
     " " +
@@ -339,12 +338,12 @@ restaurantButtons.forEach((child) => {
   child.addEventListener("click", async () => {
     restaurant = child.value;
     if (child.value === "sodexo") {
-      renderCards(await getSodexoCourses(lang));
+      renderCards(await getSodexoCourses(activeLang));
       menuPriceCalc();
       restaurant = "sodexo";
     }
     if (child.value === "fazer") {
-      renderCards(await getFazerCourses(lang));
+      renderCards(await getFazerCourses(activeLang));
       menuPriceCalc();
       restaurant = "fazer";
     }
