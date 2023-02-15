@@ -354,10 +354,10 @@ restaurantButtons.forEach((child) => {
 sortButtons.forEach((child) => {
   child.addEventListener("click", async () => {
     if (restaurant === "sodexo") {
-      renderCards(sortCourses(child.value, await getSodexoCourses(lang)));
+      renderCards(sortCourses(child.value, await getSodexoCourses(activeLang)));
     }
     if (restaurant === "fazer") {
-      renderCards(sortCourses(child.value, await getFazerCourses(lang)));
+      renderCards(sortCourses(child.value, await getFazerCourses(activeLang)));
     }
   });
 });
@@ -366,10 +366,14 @@ sortButtons.forEach((child) => {
 filterButtons.forEach((child) => {
   child.addEventListener("click", async () => {
     if (restaurant === "sodexo") {
-      renderCards(filterCourses(child.value, await getSodexoCourses(lang)));
+      renderCards(
+        filterCourses(child.value, await getSodexoCourses(activeLang))
+      );
     }
     if (restaurant === "fazer") {
-      renderCards(filterCourses(child.value, await getFazerCourses(lang)));
+      renderCards(
+        filterCourses(child.value, await getFazerCourses(activeLang))
+      );
     }
   });
 });
