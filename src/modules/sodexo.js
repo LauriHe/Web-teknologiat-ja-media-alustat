@@ -17,9 +17,12 @@ const getSodexoCourses = async (lang) => {
   // Get the current date
   const year = new Date().getFullYear();
   let month = new Date().getMonth() + 1;
-  const day = new Date().getDate();
+  let day = new Date().getDate();
   if (month < 10) {
     month = "0" + month;
+  }
+  if (day < 10) {
+    day = "0" + day;
   }
 
   // Array to store the courses
@@ -29,6 +32,7 @@ const getSodexoCourses = async (lang) => {
   const dailyMenu = await doFetch(
     `https://www.sodexo.fi/ruokalistat/output/daily_json/152/${year}-${month}-${day}`
   );
+  console.log(dailyMenu);
   // Push the courses to the array
   Object.entries(dailyMenu.courses).forEach((course) => {
     sodexoCourses.push(course.pop());
